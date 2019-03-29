@@ -1,0 +1,109 @@
+##### Repository live template #####
+
+/**
+ * @author: Edson A. Terceros T.
+ */
+
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+#parse("File Header.java")
+
+import edu.umss.dip.ssiservice.model.${NAME};
+
+public interface ${NAME}Repository extends GenericRepository<${NAME}> {
+}
+
+
+
+#### Service ####
+
+/**
+ * @author: Edson A. Terceros T.
+ */
+
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+#parse("File Header.java")
+
+import edu.umss.dip.ssiservice.model.${NAME};
+
+public interface ${NAME}Service extends GenericService<${NAME}> {
+}
+
+
+### ServiceImpl ###
+
+/**
+ * @author: Edson A. Terceros T.
+ */
+
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+#parse("File Header.java")
+
+import edu.umss.dip.ssiservice.model.${NAME};
+import edu.umss.dip.ssiservice.repositories.${NAME}Repository;
+import edu.umss.dip.ssiservice.repositories.GenericRepository;
+import org.springframework.stereotype.Service;
+
+@Service
+public class ${NAME}ServiceImpl extends GenericServiceImpl<${NAME}> implements ${NAME}Service{
+    private final ${NAME}Repository repository;
+
+    public ${NAME}ServiceImpl(${NAME}Repository repository) {
+        this.repository = repository;
+    }
+
+    @Override
+    protected GenericRepository<${NAME}> getRepository() {
+        return repository;
+    }
+}
+
+
+### controller ###
+
+
+/**
+ * @author: Edson A. Terceros T.
+ */
+
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+#parse("File Header.java")
+#set($LOWER_NAME = $NAME.substring(0,1).toLowerCase() + $NAME.substring(1))
+
+import edu.umss.dip.ssiservice.model.${NAME};
+import edu.umss.dip.ssiservice.service.${NAME}Service;
+import edu.umss.dip.ssiservice.service.GenericService;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/${LOWER_NAME}")
+public class ${NAME}Controller extends GenericController<${NAME}> {
+    private ${NAME}Service service;
+
+    public ${NAME}Controller(${NAME}Service service) {
+        this.service = service;
+    }
+
+    @Override
+    @GetMapping
+    public String getAll(Model model) {
+        return super.getAll(model);
+    }
+
+    @Override
+    protected GenericService getService() {
+        return service;
+    }
+
+    @Override
+    protected String getSingular() {
+        return "${LOWER_NAME}";
+    }
+
+    @Override
+    protected String getPlural() {
+        return "${LOWER_NAME}s";
+    }
+}
