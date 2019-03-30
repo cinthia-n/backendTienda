@@ -50,6 +50,19 @@ public abstract class GenericServiceImpl<T extends ModelBase> implements Generic
         }
     }
 
+    /*@Override
+    /*public T findByCategoria(String categoria) {
+        final Optional<T> optional = getRepository().findByCategoria(categoria);
+        if (!optional.isPresent()) {
+            String typeName = (((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0])
+                    .getTypeName();
+            typeName = typeName.substring(typeName.lastIndexOf('.') + 1);
+            throw new NotFoundException(String.format("%s Not found with id %s", typeName, categoria));
+        } else {
+            return optional.get();
+        }
+    }
+    */
     @Override
     public T save(T model) {
         validateSave(model);

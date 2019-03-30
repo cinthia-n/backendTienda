@@ -10,7 +10,9 @@ import edu.umss.dip.ssiservice.service.*;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.FormDataParam;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 
+import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -33,6 +35,16 @@ public class MaquinariaController extends GenericController<Maquinaria, Maquinar
     @GET
     public List<MaquinariaDto> getAll() {
         return super.getAll();
+    }
+
+    @POST
+    public MaquinariaDto save(@RequestBody MaquinariaDto maquinaria) {
+        return super.save(maquinaria);
+    }
+
+    @DELETE
+    public void delete(@PathParam("id") @NotNull Long id) {
+        super.deleteElement(id);
     }
 
 
