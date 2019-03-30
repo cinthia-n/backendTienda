@@ -51,6 +51,12 @@ public abstract class GenericController<E extends ModelBase, D extends DtoBase<E
         return toDto((E) (getService().findById(id)));
     }
 
+    /*@GET
+    @Path("/{categoria}")
+    public D getByCategoria(@PathParam("categoria") @NotNull String categoria) {
+        return toDto((E) (getService().findByCategoria(categoria)));
+    }*/
+
     public List<D> getAll() {
         return toDto(getService().findAll());
     }

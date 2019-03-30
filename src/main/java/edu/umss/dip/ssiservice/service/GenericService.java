@@ -16,6 +16,9 @@ public interface GenericService<T extends ModelBase> {
 
     T findById(Long id);
 
+    //T findByCategoria(String categoria);
+
+
     T save(T model);
 
     T patch(DtoBase dto, T model);

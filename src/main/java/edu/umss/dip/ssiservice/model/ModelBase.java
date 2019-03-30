@@ -23,6 +23,7 @@ public class ModelBase<D extends DtoBase> {
     private Long id;
 
 
+
     @CreatedDate
     @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false, updatable = false)
