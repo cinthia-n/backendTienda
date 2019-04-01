@@ -48,7 +48,7 @@ public class MaquinariaController extends GenericController<Maquinaria, Maquinar
     }
 
 
-    @Path("/{id}/imagen")
+    @Path("/{id}/image")
     @POST
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
