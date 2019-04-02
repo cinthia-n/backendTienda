@@ -70,7 +70,7 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         maquinaria1.setModelo("MOD 2018");
         maquinaria1.setCapacidad("CAP. 1");
         maquinaria1.setPrecio("25000 $");
-        maquinaria1.setSubCategoria(tipoSubcategoria);
+        maquinaria1.setCategoria("TRACTOR");
         maquinariaRepository.save(maquinaria1);
 
         Maquinaria maquinaria2 = new Maquinaria();
@@ -78,7 +78,7 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         maquinaria2.setModelo("MOD 2018");
         maquinaria2.setCapacidad("CAP. 2");
         maquinaria2.setPrecio("2500 $");
-        maquinaria2.setSubCategoria(tipoSubcategoria1);
+        maquinaria2.setCategoria("MOTOCULTOR");
         maquinariaRepository.save(maquinaria2);
 
 

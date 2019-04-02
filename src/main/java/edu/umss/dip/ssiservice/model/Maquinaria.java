@@ -17,12 +17,17 @@ public class Maquinaria extends ModelBase<MaquinariaDto> {
     private String modelo;
     private String capacidad;
     private String precio;
-
+    private String categoria;
     @Lob
     private Byte[] imagen;
 
-    @OneToOne(targetEntity = SubCategoria.class)
-    private SubCategoria subCategoria;
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
 
     public String getMarca() {
         return marca;
@@ -64,13 +69,6 @@ public class Maquinaria extends ModelBase<MaquinariaDto> {
         this.imagen = imagen;
     }
 
-    public SubCategoria getSubCategoria() {
-        return subCategoria;
-    }
-
-    public void setSubCategoria(SubCategoria subCategoria) {
-        this.subCategoria = subCategoria;
-    }
 
     @Override
     public ModelBase toDomain(MaquinariaDto element, ModelMapper mapper) {

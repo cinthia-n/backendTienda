@@ -16,7 +16,7 @@ public class MaquinariaDto extends DtoBase<Maquinaria> {
      private String capacidad;
      private String precio;
      private String imagen;
-     private Long subCategoriaId;
+
 
 
     public String getCategoria() {
@@ -67,18 +67,12 @@ public class MaquinariaDto extends DtoBase<Maquinaria> {
         this.imagen = imagen;
     }
 
-    public Long getSubCategoriaId() {
-        return subCategoriaId;
-    }
 
-    public void setSubCategoriaId(Long subCategoriaId) {
-        this.subCategoriaId = subCategoriaId;
-    }
 
     @Override
     public MaquinariaDto toDto(Maquinaria maquinaria, ModelMapper mapper) {
         super.toDto(maquinaria, mapper);
-        setCategoria(maquinaria.getSubCategoria().getCategoria().getNombre());
+
 
         if (maquinaria.getImagen() != null) {
             byte[] bytes = new byte[maquinaria.getImagen().length];
