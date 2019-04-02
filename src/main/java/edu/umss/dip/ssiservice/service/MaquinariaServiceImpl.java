@@ -4,13 +4,17 @@
 
 package edu.umss.dip.ssiservice.service;
 
+import edu.umss.dip.ssiservice.dto.MaquinariaDto;
 import edu.umss.dip.ssiservice.model.Maquinaria;
 import edu.umss.dip.ssiservice.repositories.GenericRepository;
 import edu.umss.dip.ssiservice.repositories.MaquinariaRepository;
+import edu.umss.dip.ssiservice.repositories.MaquinariaSpecification;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 @Service
 public class MaquinariaServiceImpl extends GenericServiceImpl<Maquinaria> implements MaquinariaService {
@@ -36,5 +40,10 @@ public class MaquinariaServiceImpl extends GenericServiceImpl<Maquinaria> implem
             logger.error("Error reading file", e);
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public List<MaquinariaDto> findAll(Specification specification) {
+        return repository.findAll(specification);
     }
 }

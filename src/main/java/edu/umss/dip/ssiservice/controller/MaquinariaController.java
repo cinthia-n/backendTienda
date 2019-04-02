@@ -6,6 +6,7 @@ package edu.umss.dip.ssiservice.controller;
 
 import edu.umss.dip.ssiservice.dto.MaquinariaDto;
 import edu.umss.dip.ssiservice.model.Maquinaria;
+import edu.umss.dip.ssiservice.repositories.MaquinariaSpecification;
 import edu.umss.dip.ssiservice.service.*;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.FormDataParam;
@@ -31,10 +32,12 @@ public class MaquinariaController extends GenericController<Maquinaria, Maquinar
         this.subCategoriaService = subCategoriaService;
     }
 
-    @Override
     @GET
-    public List<MaquinariaDto> getAll() {
-        return super.getAll();
+    public List<MaquinariaDto> getAll(
+            @QueryParam(value = "marca") String marca,
+            @QueryParam(value = "modelo") String modelo,
+            @QueryParam(value = "capacidad") String capacidad) {
+        return service.findAll(new MaquinariaSpecification(marca, modelo, capacidad));
     }
 
     @POST
