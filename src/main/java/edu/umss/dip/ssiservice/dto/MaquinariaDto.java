@@ -14,7 +14,7 @@ public class MaquinariaDto extends DtoBase<Maquinaria> {
      private String marca;
      private String modelo;
      private String capacidad;
-     private String precio;
+     private int precio;
      private String imagen;
      private Long subCategoriaId;
 
@@ -51,11 +51,11 @@ public class MaquinariaDto extends DtoBase<Maquinaria> {
         this.capacidad = capacidad;
     }
 
-    public String getPrecio() {
+    public int getPrecio() {
         return precio;
     }
 
-    public void setPrecio(String precio) {
+    public void setPrecio(int precio) {
         this.precio = precio;
     }
 

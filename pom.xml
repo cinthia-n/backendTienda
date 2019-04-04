@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:mvc="http://www.hibernate.org/xsd/orm/cfg"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
@@ -16,6 +17,21 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <!--<mvc:cors>
+            <mvc:cors>
+
+                <mvc:mapping path="/api/**"
+                             allowed-origins="http://localhost:4200"
+                             allowed-methods="GET, PUT"
+                             allowed-headers="Object, header2, header3"
+                             exposed-headers="header1, header2" allow-credentials="false"
+                             max-age="123" />
+
+                <mvc:mapping path="/resources/**"
+                             allowed-origins="http://domain1.com" />
+
+            </mvc:cors>
+        </mvc:cors>-->
     </properties>
 
     <dependencies>

@@ -10,7 +10,7 @@ import edu.umss.dip.ssiservice.service.*;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.FormDataParam;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
@@ -19,9 +19,20 @@ import javax.ws.rs.core.Response;
 import java.io.InputStream;
 import java.util.List;
 
-@Controller
-@Path("/maquinarias")
+/*@RestController
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})*/
+/*@Path("/maquinarias")
 @Produces(MediaType.APPLICATION_JSON)
+@Controller*/
+/*@RestController
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})*/
+
+
+/*@CrossOrigin(origins = {"*"}, maxAge = 4800, allowCredentials = "false")
+@RestController*/
+@Controller
+@Produces(MediaType.APPLICATION_JSON)
+@Path("/maquinarias")
 public class MaquinariaController extends GenericController<Maquinaria, MaquinariaDto> {
     private MaquinariaService service;
     private SubCategoriaService subCategoriaService;
